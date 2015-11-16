@@ -13,11 +13,12 @@
       </h3>
       <div class="body">
         {{ $article->body}}
-      </div>
+      </div><hr/>
 
     @endforeach
 
   </div>
-<hr/>
+
 {!! $articles->appends(Request::except('page'))->render() !!}
 @stop
+

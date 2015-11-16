@@ -23,6 +23,7 @@
           </div>
         {!! Form::close() !!}
         <ul class="nav navbar-nav navbar-right">
+          <li><a href="/auth/register">Sign up</a></li>
           <li><a href="/auth/logout">Logout</a></li>
         </ul>
       </div>

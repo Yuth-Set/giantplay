@@ -75,6 +75,12 @@ class ArticlesController extends Controller
       return redirect('articles');
     }
 
+    public function destroy(Article $article) {
+      $article->delete();
+      flash()->success('Your article have been deleted');
+      return redirect('articles');
+    }
+
     private function syncTags(Article $article, array $tags)
     {
       $article->tags()->sync($tags);
@@ -86,6 +92,7 @@ class ArticlesController extends Controller
       $article->tags()->attach($request->input('tag_list'));
       return $article;
     }
+
 
   /*  $collection->search(function ($article, $key) {
     return $article->5;

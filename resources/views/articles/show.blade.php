@@ -1,12 +1,28 @@
 @extends('app')
 @section('content')
-  <h3>{{ $article->title}}</h3>
+  <h3>{{ $article->title}}</h3><hr>
   <article>
-    
-      {{ $article->body}}
-      <br/>
       <div>
-        <button>Update</button>&nbsp;<button>Delete</button>
+        {{ $article->body}}
+      </div>
+      <br/>
+      <div class="row">
+     
+      
+            <div class="col-lg-6 col-md-2 col-sm-6 col-xs-6">
+              <div class="form-group">
+                  {!! link_to_route('articles.edit', 'Update', $article->id, ['class' => 'btn btn-block btn-sm btn-primary']) !!}
+              </div>
+            </div>
+            <div class="col-lg-6 col-md-2 col-sm-6 col-xs-6">
+              <div class="form-group">
+                  {!! Form::open(['method'=>'DELETE','route'=>['articles.destroy',$article->id]])!!}
+                    {!! Form::submit('Delete',['class' => 'btn btn-block btn-sm btn-danger'])!!}
+                  {!! Form::close()!!}       
+                              </div>
+            </div>
+        
+     
       </div>
   </article>
   @unless($article->tags->isEmpty())
