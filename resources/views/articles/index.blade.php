@@ -1,7 +1,7 @@
 @extends('app')
 @section('title','Blog-Article')
 @section('content')
-<h3><b>Article</b></h3>
+<h3><span class="glyphicon glyphicon-book"></span><b> Article</b></h3>
 <hr/>
 
 
@@ -9,7 +9,7 @@
     @foreach ($articles as $article)
 
       <h3>
-        <a href="{{ url('/articles', $article->id)}}">{{ $article->title}}</a>
+        <a href="{{ url('/articles', $article->id)}}"><span class="glyphicon glyphicon-pushpin"></span> {{ $article->title}}</a>
       </h3>
       <div class="body">
         {{ $article->body}}
