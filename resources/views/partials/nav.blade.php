@@ -15,7 +15,7 @@
         <ul class="nav navbar-nav">
           <li><a href="/"><span class="glyphicon glyphicon-home"></span> Home</a></li>
           <li class="active"><a href="/articles"><span class="glyphicon glyphicon-book"></span> Article</a></li>
-          <li><a href="/articles/create">Create Article</a></li>
+          <li><a href="/articles/create"><span class="glyphicon glyphicon-pencil"></span> New article</a></li>
         </ul>
         {!! Form::open(['route'=>'articles.index','method'=>'POST','class'=>'navbar-form navbar-left','role'=>'search','id'=>'frmSearch'])!!}
           <div class="form-group">
@@ -23,8 +23,14 @@
           </div>
         {!! Form::close() !!}
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="/auth/register"><span class="glyphicon glyphicon-check btn btn-sm btn-block btn-success"></span></a></li>
-          <li><a href="/auth/logout"><span class="glyphicon glyphicon-off btn btn-sm btn-block btn-danger"></span></a></li>
+
+          @if (Auth::user())
+            <li><a href="/auth/logout"><span class="glyphicon glyphicon-log-out btn btn-sm btn-block btn-danger" title="Logout"></span></a></li>
+          @else
+            <li><a href="/auth/register"><span class="glyphicon glyphicon-check btn btn-sm btn-block btn-success" title="Sign up"></span></a></li>
+            <li><a href="/auth/login"><span class="glyphicon glyphicon-log-in btn btn-sm btn-block btn-success" title="Login"></span></a></li>
+          @endif
+
         </ul>
       </div>
 

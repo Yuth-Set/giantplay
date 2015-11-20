@@ -1,7 +1,7 @@
 @extends('app')
 @section('title','Blog-Article')
 @section('content')
-  <h1>Write a new article!</h1><hr/>
+  <h3><span class="glyphicon glyphicon-pencil"></span> New Article!</h3><hr/>
   {!! Form::model($article = new \App\Article, ['url'=>'articles']) !!}
     @include('articles.form',['submitButtonText' => 'Add Article'])
   {!! Form::close() !!}

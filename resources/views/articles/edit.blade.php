@@ -1,7 +1,7 @@
 @extends('app')
 @section('title','Blog-Article')
 @section('content')
-  <h1>Edit: {!! $article->title !!}</h1>
+  <h3><span class="glyphicon glyphicon-edit"></span> {!! $article->title !!}</h3>
   {!! Form::model($article,['method' => 'PATCH', 'action'=>['ArticlesController@update', $article->id]]) !!}
     @include('articles.form',['submitButtonText' => 'Update Article'])
   {!! Form::close() !!}
