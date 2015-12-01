@@ -22,3 +22,5 @@
 {!! $articles->appends(Request::except('page'))->render() !!}
 @stop
 
+
+

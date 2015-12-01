@@ -94,7 +94,10 @@ class ArticlesController extends Controller
     }
 
 
-  /*  $collection->search(function ($article, $key) {
-    return $article->5;
-    });*/
+    public function search(Request $request) {
+      $keyword = "%{$request->input('k')}%";
+      return Article::
+        where('title', 'LIKE', $keyword)
+        ->orWhere('body', 'LIKE', $keyword)->get();
+    }
 }

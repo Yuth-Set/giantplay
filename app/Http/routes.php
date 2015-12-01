@@ -16,6 +16,7 @@
 
 
 Route::get('/', 'ArticlesController@index');
+Route::get('search',['as'=>'articles.search','uses'=>'ArticlesController@search']);
 Route::resource('articles','ArticlesController');
 Route::get('tags/{tags}','TagsController@show');
 Route::controllers([

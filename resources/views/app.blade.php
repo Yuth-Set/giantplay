@@ -33,6 +33,8 @@
   <script src="/js/libs/bootstrap.min.js"></script>
   <script src="/js/libs/select2.min.js"></script>
   <script src="/js/msgDisplay.js"></script>
+  <script src="https://twitter.github.io/typeahead.js/releases/latest/typeahead.bundle.js" type="text/javascript"></script>
+  <script src="/js/articles.js"></script>
   @yield('footer')
 </body>
 </html>
