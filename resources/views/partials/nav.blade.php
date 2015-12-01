@@ -2,7 +2,7 @@
 <nav class="navbar navbar-default navbar-fixed-top">
 
     <div class="container">
-        
+
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
                 <button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle">
@@ -38,17 +38,3 @@
 </nav>
 
 
-{{-- <div class="panel">
-  <div class="panel-body">
-    <div class="row">
-      <div class="col-md-offset-6 col-md-6">
-        <ul>
-          <li>dsdsadsadadsad</li>
-          <li>dsdsadsadadsad</li>
-          <li>dsdsadsadadsad</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</div>
- --}}
