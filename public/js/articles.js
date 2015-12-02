@@ -37,8 +37,21 @@ $(function(){
 			$('.articles').html(tags);
 			$('.pagination').hide();
 		});	
-
 	});
+
+	// $('input[name=body]').ckeditor();
+	CKEDITOR.replace('txtBody', {
+		filebrowserBrowseUrl: '/ckfinder/ckfinder.html',
+		filebrowserUploadUrl: '/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files',
+
+
+			filebrowserImageBrowseUrl: '/browser/browse.php?type=Images',
+			filebrowserImageUploadUrl: '/uploader/upload.php?type=Images',
+			filebrowserWindowWidth: '900',
+	});
+
+	// var editor = CKEDITOR.replace('ckfinder');
+	// CKFinder.setupCKEditor( editor );
 
 });
   
