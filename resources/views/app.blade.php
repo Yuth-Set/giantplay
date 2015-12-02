@@ -22,8 +22,12 @@
   </style>
 </head>
 <body>
-
+  @if(Auth::user())
+  @include('partials.authNav')
+  @else
   @include('partials.nav')
+  @endif
+
   <div class="container">
     @include('flash::message')
     @yield('content')
