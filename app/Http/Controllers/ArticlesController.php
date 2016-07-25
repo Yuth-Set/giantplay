@@ -23,7 +23,7 @@ class ArticlesController extends Controller {
         // }
 
         //$articles = $articles->paginate(3);
-        $sql = 'id, title, user_id, published_at, CONCAT(SUBSTR(body, 1, 236), "...") AS `body`';
+        $sql = 'id, title, user_id, published_at, CONCAT(SUBSTR(body, 1, 236), "...") AS body';
         $articles = Article::selectRaw($sql)->latest()->published()->paginate(3);
         // return $articles = Article::latest()->published()->paginate(3);
         $articles->setPath('/articles');
