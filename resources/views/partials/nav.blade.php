@@ -15,7 +15,7 @@
             </div>
             <!-- Collection of nav links, forms, and other content for toggling -->
             <div id="navbarCollapse" class="collapse navbar-collapse">
-                {!! Form::open(['route'=>'articles.search','method'=>'POST','class'=>'navbar-form navbar-right','role'=>'search','id'=>'frmSearch'])!!}
+                {!! Form::open(['route'=>'articles.search','method'=>'POST','class'=>'navbar-form','role'=>'search','id'=>'frmSearch'])!!}
                 <div class="form-group">
                     {!! Form::text('k',null,['class'=>'form-control','id'=>'txtSearch','placeholder'=>'Search...']) !!}
                 </div>
