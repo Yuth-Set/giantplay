@@ -16,7 +16,14 @@ class ArticlesController extends Controller {
     }
 
     public function index(Request $request) {
-        $sql = "id, title, user_id, published_at, CONCAT(SUBSTR(body, 1, 236), '...') AS `body`";
+        // $articles = Article::orderBy('title');
+        // $title = $request->input('title');
+        // if(!empty($title)){
+        //   $articles->Where('title','LIKE','%'.$title.'%');
+        // }
+
+        //$articles = $articles->paginate(3);
+        $sql = 'id, title, user_id, published_at, CONCAT(SUBSTR(body, 1, 236), "...") AS body';
         $articles = Article::selectRaw($sql)->latest()->published()->paginate(3);
         // return $articles = Article::latest()->published()->paginate(3);
         $articles->setPath('/articles');
