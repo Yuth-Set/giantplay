@@ -18,11 +18,15 @@
                 <ul class="nav navbar-nav">
                     <li><a href="/articles/create"><span class="glyphicon glyphicon-pencil"></span> New article</a></li>
                 </ul>
-                {!! Form::open(['route'=>'articles.search','method'=>'POST','class'=>'navbar-form','role'=>'search','id'=>'frmSearch'])!!}
-                <div class="form-group">
-                    {!! Form::text('k',null,['class'=>'form-control','id'=>'txtSearch','placeholder'=>'Search...']) !!}
-                </div>
-                {!! Form::close() !!}
+                <ul class="nav navbar-nav navbar-left">
+                    <li>
+                        {!! Form::open(['route'=>'articles.search','method'=>'POST','class'=>'navbar-form','role'=>'search','id'=>'frmSearch'])!!}
+                        <div class="form-group">
+                            {!! Form::text('k',null,['class'=>'form-control','id'=>'txtSearch','placeholder'=>'Search...']) !!}
+                        </div>
+                        {!! Form::close() !!}
+                    </li>
+                </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li>Hi {{ Auth::user()->name }}! <a href="/auth/logout"><span class="glyphicon glyphicon-log-out" title="Logout"> Logout</span></a></li>
                 </ul>
