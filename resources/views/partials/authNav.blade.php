@@ -1,32 +1,48 @@
 <!-- Fixed navbar -->
 <nav class="navbar navbar-default navbar-fixed-top">
 
-    <div class="container">
-
-            <!-- Brand and toggle get grouped for better mobile display -->
+    <nav class="navbar navbar-default navbar-static-top">
+        <div class="container">
             <div class="navbar-header">
-                <button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle">
-                    <span class="sr-only">Toggle navigation</span>
+
+                <!-- Collapsed Hamburger -->
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
+                    <span class="sr-only">Toggle Navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a href="/" class="navbar-brand"><span class="glyphicon glyphicon-flag"></span> Article-Blog</a>
-            </div>
-            <!-- Collection of nav links, forms, and other content for toggling -->
-            <div id="navbarCollapse" class="collapse navbar-collapse">
-                <ul class="nav navbar-nav">
-                    <li><a href="/articles/create"><span class="glyphicon glyphicon-pencil"></span> New article</a></li>
-                    @if (Auth::user())
-                    <li><a href="/auth/logout"><span class="glyphicon glyphicon-log-out" title="Logout"> Logout</span></a></li>
-                    @endif
 
-                    @if( !( Auth::user() ))
-                    <li><a href="/auth/register"><span class="glyphicon glyphicon-check" title="Sign up"> Register</span></a></li>
-                    <li><a href="/auth/login"><span class="glyphicon glyphicon-log-in" title="Login"> Login</span></a></li>
-                    @endif
+                <!-- Branding Image -->
+                <a class="navbar-brand" href="/">
+                    Gint-Play
+                </a>
+            </div>
+
+            <div class="collapse navbar-collapse" id="app-navbar-collapse">
+                <!-- Left Side Of Navbar -->
+                <ul class="nav navbar-nav">
+                    <li><a href="/articles/create">Creat Post</a></li>
                 </ul>
+
+                <!-- Right Side Of Navbar -->
                 <ul class="nav navbar-nav navbar-right">
+                    <!-- Authentication Links -->
+                    @if (Auth::user())
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                {{ Auth::user()->name }} <span class="caret"></span>
+                            </a>
+
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="/auth/logout"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
+                            </ul>
+                        </li>
+                    @else
+                        <li><a href="/auth/login">Login</a></li>
+                        <li><a href="/auth/register">Register</a></li>
+
+                    @endif
                 </ul>
                 {!! Form::open(['route'=>'articles.search','method'=>'POST','class'=>'navbar-form navbar-right','role'=>'search','id'=>'frmSearch'])!!}
                 <div class="form-group">
@@ -34,7 +50,7 @@
                 </div>
                 {!! Form::close() !!}
             </div>
-    </div>
-</nav>
+        </div>
+    </nav>
 
 
