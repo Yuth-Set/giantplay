@@ -15,16 +15,16 @@
             </div>
             <!-- Collection of nav links, forms, and other content for toggling -->
             <div id="navbarCollapse" class="collapse navbar-collapse">
-                <ul class="nav navbar-nav">
-                    <!-- <li class="active"><a href="/"><span class="glyphicon glyphicon-home"></span> Home</a></li> -->
-                    <li><a href="/auth/register"><span class="glyphicon glyphicon-check" title="Sign up"> Sign-Up</span></a></li>
-                    <li><a href="/auth/login"><span class="glyphicon glyphicon-log-in" title="Login"> Login</span></a></li>
-                </ul>
                 {!! Form::open(['route'=>'articles.search','method'=>'POST','class'=>'navbar-form navbar-right','role'=>'search','id'=>'frmSearch'])!!}
                 <div class="form-group">
                     {!! Form::text('k',null,['class'=>'form-control','id'=>'txtSearch','placeholder'=>'Search...']) !!}
                 </div>
                 {!! Form::close() !!}
+                <ul class="nav navbar-nav navbar-right">
+                    <!-- <li class="active"><a href="/"><span class="glyphicon glyphicon-home"></span> Home</a></li> -->
+                    <li><a href="/auth/register"><span class="glyphicon glyphicon-check" title="Sign up"> Sign-Up</span></a></li>|
+                    <li><a href="/auth/login"><span class="glyphicon glyphicon-log-in" title="Login"> Login</span></a></li>
+                </ul>
             </div>
     </div>
 </nav>
