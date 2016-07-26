@@ -28,7 +28,8 @@
                     </li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li>Hi {{ Auth::user()->name }}! <a href="/auth/logout"><span class="glyphicon glyphicon-log-out" title="Logout"> Logout</span></a></li>
+                    <li>Hi {{ Auth::user()->name }}!</li>
+                    <li><a href="/auth/logout"><span class="glyphicon glyphicon-log-out" title="Logout"> Logout</span></a></li>
                 </ul>
             </div>
     </div>
