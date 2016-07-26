@@ -16,15 +16,15 @@
             <!-- Collection of nav links, forms, and other content for toggling -->
             <div id="navbarCollapse" class="collapse navbar-collapse">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="/"><span class="glyphicon glyphicon-home"></span> Home</a></li>
                     <li><a href="/articles/create"><span class="glyphicon glyphicon-pencil"></span> New article</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     @if (Auth::user())
                     <li><a href="/auth/logout"><span class="glyphicon glyphicon-log-out" title="Logout"> Logout</span></a></li>
                     @endif
-                    @if( !Auth::user())
-                    <li><a href="/auth/register"><span class="glyphicon glyphicon-check" title="Sign up"> Sign-Up</span></a></li>
+
+                    @if( !( Auth::user() ))
+                    <li><a href="/auth/register"><span class="glyphicon glyphicon-check" title="Sign up"> Register</span></a></li>
                     <li><a href="/auth/login"><span class="glyphicon glyphicon-log-in" title="Login"> Login</span></a></li>
                     @endif
                 </ul>
