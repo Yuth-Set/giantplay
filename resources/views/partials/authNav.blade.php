@@ -17,8 +17,6 @@
             <div id="navbarCollapse" class="collapse navbar-collapse">
                 <ul class="nav navbar-nav">
                     <li><a href="/articles/create"><span class="glyphicon glyphicon-pencil"></span> New article</a></li>
-                </ul>
-                <ul class="nav navbar-nav navbar-right">
                     @if (Auth::user())
                     <li><a href="/auth/logout"><span class="glyphicon glyphicon-log-out" title="Logout"> Logout</span></a></li>
                     @endif
@@ -27,6 +25,8 @@
                     <li><a href="/auth/register"><span class="glyphicon glyphicon-check" title="Sign up"> Register</span></a></li>
                     <li><a href="/auth/login"><span class="glyphicon glyphicon-log-in" title="Login"> Login</span></a></li>
                     @endif
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
                 </ul>
                 {!! Form::open(['route'=>'articles.search','method'=>'POST','class'=>'navbar-form navbar-right','role'=>'search','id'=>'frmSearch'])!!}
                 <div class="form-group">
