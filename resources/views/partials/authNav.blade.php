@@ -22,7 +22,8 @@
                 <ul class="nav navbar-nav navbar-right">
                     @if (Auth::user())
                     <li><a href="/auth/logout"><span class="glyphicon glyphicon-log-out" title="Logout"> Logout</span></a></li>
-                    @else if(!Auth::user())
+                    @endif
+                    @if( !Auth::user())
                     <li><a href="/auth/register"><span class="glyphicon glyphicon-check" title="Sign up"> Sign-Up</span></a></li>
                     <li><a href="/auth/login"><span class="glyphicon glyphicon-log-in" title="Login"> Login</span></a></li>
                     @endif
