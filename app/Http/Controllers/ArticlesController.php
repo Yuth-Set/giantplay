@@ -60,16 +60,26 @@ class ArticlesController extends Controller {
 
     public function update(Article $article, ArticleRequest $request) {
         /*$article = Article::findOrFail($id);*/
-        $article->update($request->all());
-        $this->syncTags($article, $request->input('tag_list'));
-        flash()->success('Your article have been updated');
-        return redirect('articles');
+        if (Auth::user() == $article->user) {
+            $article->update($request->all());
+            $this->syncTags($article, $request->input('tag_list'));
+            flash()->success('Your article have been updated');
+            return redirect('articles');
+        } else {
+            flash()->warning('Oop! You are not allowed to update!');
+            return redirect('articles');
+        }
     }
 
     public function destroy(Article $article) {
-        $article->delete();
-        flash()->success('Your article have been deleted');
-        return redirect('articles');
+        if (Auth::user() == $article->user) {
+            $article->delete();
+            flash()->success('Your article have been deleted');
+            return redirect('articles');
+        } else {
+            flash()->warning('Oop! You are not allowed to delete!');
+            return redirect('articles');
+        }
     }
 
     private function syncTags(Article $article, array $tags) {

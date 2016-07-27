@@ -7,7 +7,7 @@
         {!! $article->body !!}
       </div>
       <br/>
-      @if(Auth::user())
+      @if(Auth::user() == $article->user)
         <div class="row">
 
               <div class="col-lg-2 col-md-3 col-sm-3 col-xs-6">
@@ -55,5 +55,7 @@
           </div>
         </div>
 @endsection
-
+@section('footer')
+  Yuth-2016
+@endsection
 @stop

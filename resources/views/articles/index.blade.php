@@ -1,5 +1,5 @@
 @extends('app')
-@section('title','Blog-Article')
+@section('title','GPlay')
 @section('content')
 @section('content-left')
 			<h3><span class="glyphicon glyphicon-book"></span> Article</h3>
@@ -40,7 +40,9 @@
 @section('pagins')
 			{!! $articles->appends(Request::except('page'))->render() !!}
 @endsection
-
+@section('footer')
+  Yuth-2016
+@endsection
 @stop
 
 

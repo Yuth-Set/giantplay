@@ -1,5 +1,5 @@
 @extends('app')
-@section('title','Blog-Article')
+@section('title','GPlay')
 @section('content')
   <h3><span class="glyphicon glyphicon-pencil"></span> New Article!</h3><hr/>
   {!! Form::model($article = new \App\Article, ['url'=>'articles']) !!}

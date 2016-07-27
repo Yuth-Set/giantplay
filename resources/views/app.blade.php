@@ -57,6 +57,8 @@
   {{-- {!! HTML::script('ckeditor/ckeditor.js') !!} --}}
   {{-- // <script src="ckeditor/ckeditor.js" type="text/javascript"></script> --}}
   <script src="/js/articles.js"></script>
+  <div class="container">
   @yield('footer')
+  </div>
 </body>
 </html>

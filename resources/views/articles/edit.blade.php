@@ -1,5 +1,5 @@
 @extends('app')
-@section('title','Blog-Article')
+@section('title','GPlay')
 @section('content')
   <h3><span class="glyphicon glyphicon-edit"></span> {!! $article->title !!}</h3>
   {!! Form::model($article,['method' => 'PATCH', 'action'=>['ArticlesController@update', $article->id]]) !!}
