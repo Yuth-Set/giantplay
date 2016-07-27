@@ -60,9 +60,14 @@ class ArticlesController extends Controller {
 
     public function update(Article $article, ArticleRequest $request) {
         /*$article = Article::findOrFail($id);*/
+        //return $request->tag_list;
         if (Auth::user() == $article->user) {
             $article->update($request->all());
-            $this->syncTags($article, $request->input('tag_list'));
+            if ($request->has('tag_list')) {
+                $article->tags()->sync($request->tag_list);
+            } else {
+                $article->tags()->detach($request->tag_list);
+            }
             flash()->success('Your article have been updated');
             return redirect('articles');
         } else {
