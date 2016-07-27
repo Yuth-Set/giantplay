@@ -39,19 +39,12 @@ $(function(){
 		});	
 	});
 
-	// $('input[name=body]').ckeditor();
-	CKEDITOR.replace('txtBody', {
-		filebrowserBrowseUrl: '/ckfinder/ckfinder.html',
-		filebrowserUploadUrl: '/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files',
-
-
-			filebrowserImageBrowseUrl: '/browser/browse.php?type=Images',
-			filebrowserImageUploadUrl: '/uploader/upload.php?type=Images',
-			filebrowserWindowWidth: '900',
-	});
-
-	// var editor = CKEDITOR.replace('ckfinder');
-	// CKFinder.setupCKEditor( editor );
+	$('textarea.txtBody').ckeditor({
+	    filebrowserImageBrowseUrl: '/laravel-filemanager?type=Images',
+	    filebrowserImageUploadUrl: '/laravel-filemanager/upload?type=Images&_token={{csrf_token()}}',
+	    filebrowserBrowseUrl: '/laravel-filemanager?type=Files',
+	    filebrowserUploadUrl: '/laravel-filemanager/upload?type=Files&_token={{csrf_token()}}'
+	  });
 
 });
   

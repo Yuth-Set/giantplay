@@ -53,9 +53,8 @@
   <script src="/js/msgDisplay.js"></script>
   <script src="https://twitter.github.io/typeahead.js/releases/latest/typeahead.bundle.js" type="text/javascript"></script>
 
-  <script src="//cdn.ckeditor.com/4.5.5/standard/ckeditor.js"></script>
-  {{-- {!! HTML::script('ckeditor/ckeditor.js') !!} --}}
-  {{-- // <script src="ckeditor/ckeditor.js" type="text/javascript"></script> --}}
+  <script src="/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
+  <script src="/vendor/unisharp/laravel-ckeditor/adapters/jquery.js"></script>
   <script src="/js/articles.js"></script>
   <div class="container">
   @yield('footer')
