@@ -1,5 +1,5 @@
 $(function(){
-	var base_link = 'http://localhost:8000/';
+	var base_link = '';
 
 	$('#txtSearch').on('keydown', function(){
 		var txt = $.trim($(this).val());
