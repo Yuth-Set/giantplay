@@ -5,16 +5,15 @@ namespace App\Providers;
 use App\Article;
 use Illuminate\Support\ServiceProvider;
 
-class ViewComposerServiceProvider extends ServiceProvider
-{
+class ViewComposerServiceProvider extends ServiceProvider {
     /**
      * Bootstrap the application services.
      *
      * @return void
      */
-    public function boot()
-    {
-      $this->composeNavigation();
+    public function boot() {
+        $this->composeNavigation();
+        view()->share('tags', \App\Tag::all());
     }
 
     /**
@@ -22,15 +21,13 @@ class ViewComposerServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function register()
-    {
+    public function register() {
         //
     }
 
-    private function composeNavigation()
-    {
-        view()->composer('partials.nav', function($view){
-            $view->with('latest',Article::latest()->first());
+    private function composeNavigation() {
+        view()->composer('partials.nav', function ($view) {
+            $view->with('latest', Article::latest()->first());
         });
     }
 }

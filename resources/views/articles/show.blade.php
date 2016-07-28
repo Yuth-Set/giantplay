@@ -39,7 +39,19 @@
   @endunless
 @endsection
 @section('content-right')
-    <h3><span class="glyphicon glyphicon-certificate"></span> Others!</h3><hr/>
+          <h3>Others!</h3><hr/>
+          <div class="row">
+            <div class="col-sm-12">
+              @foreach($tags as $tag)
+                <p class="glyphicon glyphicon-triangle-right" >
+                <a href="{{ url('tags/'.$tag->name) }}">
+                <span style="font-weight: bold;">{{ $tag->name }}</span>
+                </a>
+                </p><br/>
+              @endforeach
+            </div>
+          </div>
+          <hr>
           <div class="row">
           <div class="col-sm-12">
             <a href="#" class="thumbnail">
