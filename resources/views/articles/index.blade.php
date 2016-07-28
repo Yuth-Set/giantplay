@@ -2,7 +2,7 @@
 @section('title','GPlay')
 @section('content')
 @section('content-left')
-			<h3><span class="glyphicon glyphicon-book"></span> Article</h3>
+			<h3><span class="glyphicon glyphicon-book"></span> Keep your note here...</h3>
 			<hr/>
 			<div class="articles">
 			    @foreach ($articles as $article)
