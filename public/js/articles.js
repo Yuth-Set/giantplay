@@ -1,5 +1,5 @@
 $(function(){
-	var base_link = '';
+	var base_link = 'http://giantplay.herokuapp.com/';
 
 	$('#txtSearch').on('keydown', function(){
 		var txt = $.trim($(this).val());
