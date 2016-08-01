@@ -9,6 +9,7 @@ use App\Http\Requests\ArticleRequest;
 use App\Tag;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use View;
 
 class ArticlesController extends Controller {
     public function __construct() {
@@ -16,17 +17,8 @@ class ArticlesController extends Controller {
     }
 
     public function index(Request $request) {
-        // $articles = Article::orderBy('title');
-        // $title = $request->input('title');
-        // if(!empty($title)){
-        //   $articles->Where('title','LIKE','%'.$title.'%');
-        // }
-
-        //$articles = $articles->paginate(3);
-        /*$sql = 'id, title, user_id, published_at, CONCAT(SUBSTR(body, 1, 236), "...") AS `body`';*/
         $sql = ("id, title, user_id, published_at, CONCAT(SUBSTR(body, 1, 236), '...') AS body");
         $articles = Article::selectRaw($sql)->latest()->published()->paginate(3);
-        // return $articles = Article::latest()->published()->paginate(3);
         $articles->setPath('/articles');
         $latest = Article::latest()->first();
 
@@ -34,8 +26,6 @@ class ArticlesController extends Controller {
     }
 
     public function show(Article $article) {
-        /*$article = Article::findOrFail($id);*/
-
         return view('articles.show', compact('article'));
     }
 
@@ -46,21 +36,16 @@ class ArticlesController extends Controller {
 
     public function store(ArticleRequest $request) {
         $this->createArticle($request);
-
-        /*flash()->overlay('Your article has been created','Good job!');*/
         flash()->success('Your article has been created');
         return redirect('articles');
     }
 
     public function edit(Article $article) {
-        /*$article = Article::findOrFail($id);*/
         $tags = Tag::lists('name', 'id');
         return view('articles.edit', compact('article', 'tags'));
     }
 
     public function update(Article $article, ArticleRequest $request) {
-        /*$article = Article::findOrFail($id);*/
-        //return $request->tag_list;
         if (Auth::user() == $article->user) {
             $article->update($request->all());
             if ($request->has('tag_list')) {

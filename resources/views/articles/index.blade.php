@@ -2,7 +2,7 @@
 @section('title','GPlay')
 @section('content')
 @section('content-left')
-			<h3><span class="glyphicon glyphicon-book"></span> Keep your note here...</h3>
+			<h3><span class="glyphicon glyphicon-book"></span> Article</h3>
 			<hr/>
 			<div class="articles">
 			    @foreach ($articles as $article)
@@ -22,6 +22,7 @@
 @endsection
 @section('content-right')
 			<h3>Others!</h3><hr/>
+
 			<div class="row">
 				<div class="col-sm-12">
 					@foreach($tags as $tag)
@@ -52,11 +53,11 @@
 @section('pagins')
 			{!! $articles->appends(Request::except('page'))->render() !!}
 @endsection
+
 @section('footer')
-  Yuth-2016
+	Yuth-2016
 @endsection
 @stop
-
 
 
 

@@ -1,5 +1,5 @@
 $(function(){
-	var base_link = 'http://giantplay.herokuapp.com/';
+	var base_link = 'http://localhost:8000/';
 
 	$('#txtSearch').on('keydown', function(){
 		var txt = $.trim($(this).val());
@@ -39,12 +39,27 @@ $(function(){
 		});	
 	});
 
+
 	$('textarea.txtBody').ckeditor({
-	    filebrowserImageBrowseUrl: '/laravel-filemanager?type=Images',
-	    filebrowserImageUploadUrl: '/laravel-filemanager/upload?type=Images&_token={{csrf_token()}}',
-	    filebrowserBrowseUrl: '/laravel-filemanager?type=Files',
-	    filebrowserUploadUrl: '/laravel-filemanager/upload?type=Files&_token={{csrf_token()}}'
-	  });
+    filebrowserImageBrowseUrl: '/laravel-filemanager?type=Images',
+    filebrowserImageUploadUrl: '/laravel-filemanager/upload?type=Images&_token={{csrf_token()}}',
+    filebrowserBrowseUrl: '/laravel-filemanager?type=Files',
+    filebrowserUploadUrl: '/laravel-filemanager/upload?type=Files&_token={{csrf_token()}}'
+  });
+
+	// $('input[name=body]').ckeditor();
+	/*CKEDITOR.replace('txtBody', {
+		filebrowserBrowseUrl: '/ckfinder/ckfinders.html',
+		filebrowserUploadUrl: '/ckfinder/core/connectors/php/connector.php?command=QuickUpload&type=Files',
+
+
+			filebrowserImageBrowseUrl: '/browser/browse.php?type=Images',
+			filebrowserImageUploadUrl: '/uploader/upload.php?type=Images',
+			filebrowserWindowWidth: '900',
+	});*/
+
+	// var editor = CKEDITOR.replace('ckfinder');
+	// CKFinder.setupCKEditor( editor );
 
 });
   

@@ -16,7 +16,8 @@
             <!-- Collection of nav links, forms, and other content for toggling -->
             <div id="navbarCollapse" class="collapse navbar-collapse">
                 <ul class="nav navbar-nav">
-                    <li><a href="/articles/create"><span class="glyphicon glyphicon-pencil"></span> New article</a></li>
+                    <li><a href="/tags"><span class="glyphicon glyphicon-tags"></span> Tag</a></li>
+                    <li><a href="/articles/create"><span class="glyphicon glyphicon-pencil"></span> New Tips</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-left">
                     <li>
@@ -30,6 +31,15 @@
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="javascript:">Hi {{ Auth::user()->name }}</a></li>
                     <li><a href="/auth/logout"><span class="glyphicon glyphicon-log-out" title="Logout"> Logout</span></a></li>
+                    <!-- <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                           Hello {{ Auth::user()->name }} <span class="caret"></span>
+                        </a>
+
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="{{ url('/auth/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
+                        </ul>
+                    </li> -->
                 </ul>
             </div>
     </div>

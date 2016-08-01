@@ -4,6 +4,9 @@ namespace App\Providers;
 
 use App\Article;
 use Illuminate\Support\ServiceProvider;
+use Schema;
+
+// use View;
 
 class ViewComposerServiceProvider extends ServiceProvider {
     /**
@@ -13,7 +16,9 @@ class ViewComposerServiceProvider extends ServiceProvider {
      */
     public function boot() {
         $this->composeNavigation();
-        view()->share('tags', \App\Tag::all());
+        if (Schema::hasTable('tags')) {
+            view()->share('tags', \App\Tag::all());
+        }
     }
 
     /**

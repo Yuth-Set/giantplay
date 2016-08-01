@@ -1,43 +1,34 @@
 @extends('app')
 @section('content')
 @section('content-left')
-  <h3><span class="glyphicon glyphicon-chevron-down"></span> {{ $article->title}}</h3><hr>
-  <article>
-      <div>
-        {!! $article->body !!}
-      </div>
-      <br/>
-      @if(Auth::user() == $article->user)
-        <div class="row">
+  <h3><span class="glyphicon glyphicon-tags"></span> Tags List</h3><hr/>
+    <div>
+      <a class="btn btn-md btn-success" href="{{ url('/tags/create')}}"></span>New Tag</a>
+    </div>
 
-              <div class="col-lg-2 col-md-3 col-sm-3 col-xs-6">
-                <div class="form-group">
-                    {!! link_to_route('articles.edit', 'Update', $article->id, ['class' => 'btn btn-block btn-sm btn-primary']) !!}
-                </div>
-              </div>
-              <div class="col-lg-2 col-md-3 col-sm-3 col-xs-6">
-                <div class="form-group">
-                    {!! Form::open(['method'=>'DELETE','route'=>['articles.destroy',$article->id]])!!}
-                      {!! Form::submit('Delete',['class' => 'btn btn-block btn-sm btn-danger'])!!}
-                    {!! Form::close()!!}
-                </div>
-              </div>
-        </div>
-      @endif
-  </article>
-  <h5><small><span class="glyphicon glyphicon-user"></span>  <i>By: {{$article->user->name}} on {{$article->created_at}}</i></small></h5>
-  @unless($article->tags->isEmpty())
-  <hr/>
-  <h5><small><span class="glyphicon glyphicon-tags"></span> Tags:</small></h5>
-  <ul>
-  <small>
-    @foreach($article->tags as $tag)
-      <li>{{ $tag->name }}</li>
+  <br/>
+  <table class="table table-hover">
+    <tr>
+      <th>ID</th>
+      <th>TAG NAME</th>
+      <th colspan="2" style="text-align: center;">ACTION</th>
+    </tr>
+    @foreach ($tags as $tag)
+    <tr>
+      <td>{{ $tag->id }}</td>
+      <td>{{ $tag->name }}</td>
+      <td>
+          {!! link_to_route('tags.edit', 'Update', $tag->id, ['class' => 'btn btn-block btn-xs btn-primary']) !!}
+      </td>
+      <td>
+          {!! Form::open(['method'=>'DELETE','route'=>['tags.destroy',$tag->id]])!!}
+            {!! Form::submit('Delete',['class' => 'btn btn-block btn-xs btn-danger'])!!}
+          {!! Form::close()!!}
+      </td>
+    </tr>
     @endforeach
-  </small>
+  </table>
 
-  </ul>
-  @endunless
 @endsection
 @section('content-right')
     <h3>Others!</h3><hr/>

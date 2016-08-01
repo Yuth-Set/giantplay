@@ -12,5 +12,8 @@
   @can('update',$post)
     <a href="#">Update This post</a>
   @endcan
+  @section('footer')
+  Yuth-2016
+  @endsection
 </body>
 </html>

@@ -68,6 +68,7 @@
   <script src="/js/msgDisplay.js"></script>
   <script src="https://twitter.github.io/typeahead.js/releases/latest/typeahead.bundle.js" type="text/javascript"></script>
 
+
   <script src="/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
   <script src="/vendor/unisharp/laravel-ckeditor/adapters/jquery.js"></script>
   <script src="/js/articles.js"></script>

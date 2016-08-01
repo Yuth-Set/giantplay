@@ -4,18 +4,21 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Tag extends Model
-{
+class Tag extends Model {
 /**
  * Fillable fields for a tag
  * @var [type]
  */
-  protected $fillable = [
-    'name'
-  ];
+    protected $fillable = [
+        'name'
+    ];
 
-    public function articles()
-    {
-      return $this->belongsToMany('App\Article');
+    public function user() {
+        return $this->belongsTo('App\User');
     }
+
+    public function articles() {
+        return $this->belongsToMany('App\Article');
+    }
+
 }
