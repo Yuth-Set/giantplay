@@ -46,7 +46,7 @@ class ArticlesController extends Controller {
     }
 
     public function update(Article $article, ArticleRequest $request) {
-        if (Auth::user() == $article->user) {
+        if ($article->isAuthorizeArticle()) {
             $article->update($request->all());
             if ($request->has('tag_list')) {
                 $article->tags()->sync($request->tag_list);
@@ -62,7 +62,7 @@ class ArticlesController extends Controller {
     }
 
     public function destroy(Article $article) {
-        if (Auth::user() == $article->user) {
+        if ($article->isAuthorizeArticle()) {
             $article->delete();
             flash()->success('Your article have been deleted');
             return redirect('articles');

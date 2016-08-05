@@ -7,7 +7,6 @@ use App\Http\Requests\TagRequest;
 use App\Tag;
 use App\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
 class TagsController extends Controller {
     public function __construct() {
@@ -23,16 +22,6 @@ class TagsController extends Controller {
         $articles->setPath($tag->name);
         return view('articles.index', compact('articles'));
     }
-
-    /*public function show(Tag $tag) {
-    return view('tags', compact('tag'));
-    }*/
-
-    /*private function createArticle(ArticleRequest $request) {
-    $article = Auth::user()->articles()->create($request->all());
-    $article->tags()->attach($request->input('tag_list'));
-    return $article;
-    }*/
 
     public function create() {
         return view('tags.create');
@@ -50,7 +39,7 @@ class TagsController extends Controller {
     }
 
     public function update(Tag $tag, TagRequest $request) {
-        if (Auth::user() == $tag->user) {
+        if ($tag->isAuthorizeTag()) {
             $tag->update($request->all());
             flash()->success('Your tag have been updated');
             return redirect('tags');
@@ -61,7 +50,7 @@ class TagsController extends Controller {
     }
 
     public function destroy(Tag $tag) {
-        if (Auth::user() == $tag->user) {
+        if ($tag->isAuthorizeTag()) {
             $tag->delete();
             flash()->success('Your tag have been deleted');
             return redirect('tags');

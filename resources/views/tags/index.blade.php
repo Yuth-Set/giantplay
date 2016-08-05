@@ -18,12 +18,16 @@
       <td>{{ $tag->id }}</td>
       <td>{{ $tag->name }}</td>
       <td>
+      @if($tag->isAuthorizeTag())
           {!! link_to_route('tags.edit', 'Update', $tag->id, ['class' => 'btn btn-block btn-xs btn-primary']) !!}
+      @endif
       </td>
       <td>
+      @if($tag->isAuthorizeTag())
           {!! Form::open(['method'=>'DELETE','route'=>['tags.destroy',$tag->id]])!!}
             {!! Form::submit('Delete',['class' => 'btn btn-block btn-xs btn-danger'])!!}
           {!! Form::close()!!}
+      @endif
       </td>
     </tr>
     @endforeach

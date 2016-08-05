@@ -24,9 +24,10 @@
       <script async src="https://static.addtoany.com/menu/page.js"></script>
       <!-- AddToAny END -->
       <br/>
-      @if(Auth::user() == $article->user)
-        <div class="row">
+      {{-- @if(Auth::user() == $article->user || Auth::user()->type == 'admin') --}}
 
+      @if ($article->isAuthorizeArticle())
+        <div class="row">
               <div class="col-lg-2 col-md-3 col-sm-3 col-xs-6">
                 <div class="form-group">
                     {!! link_to_route('articles.edit', 'Update', $article->id, ['class' => 'btn btn-block btn-sm btn-primary']) !!}

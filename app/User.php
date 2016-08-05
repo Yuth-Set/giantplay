@@ -49,7 +49,13 @@ CanResetPasswordContract {
     }
 
     public function isATeamManager() {
-        return true;
+        if ($this->is('admin')) {
+            return true;
+        }
+        return false;
     }
 
+    public function isAdmin() {
+        return $this->type == 'admin'; // this looks for an admin column in your users table
+    }
 }
