@@ -20,6 +20,12 @@
     * {
       border-radius:1px !important;
     }
+    .fb-wrap {
+      width:100%;
+      margin: 0 auto;
+    }
+
+    .fb-like-box, .fb-like-box span, .fb-like-box span iframe[style] { width: 100% !important; }
     .video-container {
         position: relative;
         padding-bottom: 56.25%;
