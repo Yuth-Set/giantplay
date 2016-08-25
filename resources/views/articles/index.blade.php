@@ -21,7 +21,7 @@
 			</div>
 @endsection
 @section('content-right')
-			<h3>Others!</h3><hr/>
+			<h3>Seek All Shares With Tags</h3><hr/>
 
 			<div class="row">
 				<div class="col-sm-12">
